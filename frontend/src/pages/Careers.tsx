@@ -13,7 +13,6 @@ import {
 } from '@mui/material';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
-import BrushIcon from '@mui/icons-material/Brush';
 import CodeIcon from '@mui/icons-material/Code';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
