@@ -1,0 +1,1 @@
+self.__RSC_SERVER_MANIFEST="{\"node\":{\"608e41db7fa3bd895575ae7017e8ef058cf9348552\":{\"workers\":{\"app/api/inquiry/route\":{\"moduleId\":\"6055\",\"async\":false}},\"layer\":{\"app/api/inquiry/route\":\"rsc\"},\"filename\":\"app/actions/inquiry.ts\",\"exportedName\":\"submitInquiry\"}},\"edge\":{},\"encryptionKey\":\"process.env.NEXT_SERVER_ACTIONS_ENCRYPTION_KEY\"}"
