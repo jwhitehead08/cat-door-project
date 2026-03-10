@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Box, Container, Grid, Link, Typography, Divider, Stack } from '@mui/material';
 import NextLink from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
@@ -137,13 +138,7 @@ const Footer: React.FC = () => {
           {/* Brand column */}
           <Grid size={{ xs: 12, md: 4 }}>
             <Box sx={{ mb: 1.5 }}>
-              <Typography
-                variant="h5"
-                fontWeight={700}
-                sx={{ fontSize: { xs: '2rem', sm: '2.75rem', md: '3.0rem' } }}
-              >
-                Digsy
-              </Typography>
+              <Image src="/transparent-logo.svg" alt="Digsy" width={160} height={54} />
             </Box>
             <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 280, lineHeight: 1.75 }}>
               Precision pet-door installation and architectural habitat systems

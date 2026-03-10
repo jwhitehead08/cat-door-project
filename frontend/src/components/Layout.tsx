@@ -19,6 +19,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useRouter, usePathname } from 'next/navigation';
+import Image from 'next/image';
 import TopBar from './TopBar';
 import Footer from './Footer';
 
@@ -81,14 +82,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       role="presentation"
     >
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', px: 2, mb: 2 }}>
-        <Typography
-          variant="h5"
-          fontWeight={700}
-          sx={{ cursor: 'pointer', fontSize: { xs: '2rem', sm: '2.75rem', md: '3.0rem' } }}
+        <Image
+          src="/transparent-logo.svg"
+          alt="Digsy"
+          width={120}
+          height={40}
+          style={{ cursor: 'pointer' }}
           onClick={() => handleNavClick('hero')}
-        >
-          Digsy
-        </Typography>
+        />
         <IconButton onClick={() => setDrawerOpen(false)} size="small" aria-label="close menu">
           <CloseIcon />
         </IconButton>
@@ -139,13 +140,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               sx={{ display: 'flex', alignItems: 'center', flexGrow: { xs: 1, md: 0 }, cursor: 'pointer' }}
               onClick={() => handleNavClick('hero')}
             >
-              <Typography
-                variant="h5"
-                fontWeight={700}
-                sx={{ fontSize: { xs: '2rem', sm: '2.75rem', md: '3.0rem' } }}
-              >
-                Digsy
-              </Typography>
+              <Image src="/transparent-logo.svg" alt="Digsy" width={120} height={40} />
             </Box>
 
             {/* Desktop nav */}
