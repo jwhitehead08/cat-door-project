@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import {
   AppBar,
   Box,
+  Chip,
+  Divider,
   Drawer,
   IconButton,
   List,
@@ -17,6 +19,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useRouter, usePathname } from 'next/navigation';
 import Image from 'next/image';
 import TopBar from './TopBar';
@@ -25,12 +28,14 @@ import Footer from './Footer';
 interface NavItem {
   label: string;
   sectionId: string;
+  href?: string;
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { label: 'Home', sectionId: 'hero' },
-  { label: 'Services', sectionId: 'services' },
-  { label: 'Process', sectionId: 'process' },
+  { label: 'Home', sectionId: 'hero', href: '/' },
+  { label: 'Services', sectionId: 'services', href: '/services' },
+  { label: 'Process', sectionId: 'process', href: '/process' },
+  { label: 'Resources', sectionId: 'resources', href: '/resources' },
   { label: 'Contact', sectionId: 'contact' },
 ];
 
@@ -57,21 +62,29 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const handleNavClick = (sectionId: string) => {
+  const handleNavClick = (item: NavItem) => {
     setDrawerOpen(false);
+    if (item.href) {
+      if (item.href === pathname) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        router.push(item.href);
+      }
+      return;
+    }
     if (pathname !== '/') {
       router.push('/');
       // Poll until the section element is in the DOM after navigation
       const tryScroll = (attemptsLeft: number) => {
-        if (document.getElementById(sectionId)) {
-          scrollToSection(sectionId);
+        if (document.getElementById(item.sectionId)) {
+          scrollToSection(item.sectionId);
         } else if (attemptsLeft > 0) {
           setTimeout(() => tryScroll(attemptsLeft - 1), 100);
         }
       };
       setTimeout(() => tryScroll(10), 100);
     } else {
-      scrollToSection(sectionId);
+      scrollToSection(item.sectionId);
     }
   };
 
@@ -87,7 +100,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           width={120}
           height={40}
           style={{ cursor: 'pointer' }}
-          onClick={() => handleNavClick('hero')}
+          onClick={() => handleNavClick({ label: 'Home', sectionId: 'hero', href: '/' })}
         />
         <IconButton onClick={() => setDrawerOpen(false)} size="small" aria-label="close menu">
           <CloseIcon />
@@ -97,7 +110,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {NAV_ITEMS.map((item) => (
           <ListItemButton
             key={item.sectionId}
-            onClick={() => handleNavClick(item.sectionId)}
+            onClick={() => handleNavClick(item)}
             sx={{ borderRadius: 2, mx: 1, mb: 0.5 }}
           >
             <ListItemText
@@ -107,11 +120,25 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </ListItemButton>
         ))}
       </List>
+      <Divider sx={{ mx: 2, my: 1 }} />
+      <List>
+        <ListItemButton
+          component="a"
+          href="/locations/college-station-bryan"
+          sx={{ borderRadius: 2, mx: 1, mb: 0.5 }}
+        >
+          <LocationOnIcon sx={{ fontSize: 18, color: '#500000', mr: 1 }} />
+          <ListItemText
+            primary="College Station, TX"
+            slotProps={{ primary: { fontWeight: 600, fontSize: '0.9rem', color: '#500000' } }}
+          />
+        </ListItemButton>
+      </List>
       <Box sx={{ mt: 'auto', p: 2 }}>
         <Button
           variant="contained"
           fullWidth
-          onClick={() => handleNavClick('contact')}
+          onClick={() => handleNavClick({ label: 'Contact', sectionId: 'contact' })}
         >
           Get Started
         </Button>
@@ -137,7 +164,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Logo */}
             <Box
               sx={{ display: 'flex', alignItems: 'center', flexGrow: { xs: 1, md: 0 }, cursor: 'pointer' }}
-              onClick={() => handleNavClick('hero')}
+              onClick={() => handleNavClick({ label: 'Home', sectionId: 'hero', href: '/' })}
             >
               <Image src="/transparent-logo.svg" alt="Digsy" width={120} height={40} />
             </Box>
@@ -148,7 +175,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 {NAV_ITEMS.map((item) => (
                   <Button
                     key={item.sectionId}
-                    onClick={() => handleNavClick(item.sectionId)}
+                    onClick={() => handleNavClick(item)}
                     sx={{ color: 'text.secondary', '&:hover': { color: 'text.primary' } }}
                   >
                     {item.label}
@@ -157,12 +184,32 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </Box>
             )}
 
+            {/* Location pill */}
+            {!isMobile && (
+              <Chip
+                icon={<LocationOnIcon sx={{ fontSize: '14px !important', color: '#fff !important' }} />}
+                label="College Station, TX"
+                size="small"
+                component="a"
+                href="/locations/college-station-bryan"
+                clickable
+                sx={{
+                  mr: 1.5,
+                  backgroundColor: '#500000',
+                  color: '#fff',
+                  fontWeight: 600,
+                  fontSize: '0.72rem',
+                  '&:hover': { backgroundColor: '#6B0000' },
+                }}
+              />
+            )}
+
             {/* Desktop CTA */}
             {!isMobile && (
               <Button
                 variant="contained"
                 size="small"
-                onClick={() => handleNavClick('contact')}
+                onClick={() => handleNavClick({ label: 'Contact', sectionId: 'contact' })}
               >
                 Get Started
               </Button>

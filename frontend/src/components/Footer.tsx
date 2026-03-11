@@ -18,12 +18,14 @@ const COLUMNS: FooterColumn[] = [
       { label: 'Smart Pet Doors', href: '#services' },
       { label: 'Vertical Habitats', href: '#services' },
       { label: 'Custom Builds', href: '#services' },
+      { label: 'Our Work', href: '/gallery' },
     ],
   },
   {
     heading: 'Company',
     links: [
       { label: 'How It Works', href: '#process' },
+      { label: 'Resources', href: '/resources' },
       { label: 'Careers', href: '/careers' },
       { label: 'Contact Us', href: '#contact' },
     ],

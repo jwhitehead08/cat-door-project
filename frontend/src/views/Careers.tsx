@@ -40,7 +40,7 @@ const ROLES: Role[] = [
     type: 'Full-time',
     icon: <EngineeringIcon />,
     description:
-      'Deliver precision pet-door and vertical habitat installations across Greater London. You take pride in clean work and leaving every home better than you found it.',
+      'Deliver precision pet-door and vertical habitat installations across College Station/Bryan, TX. You take pride in clean work and leaving every home better than you found it.',
   },
   {
     title: 'Customer Success Manager',

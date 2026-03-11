@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "0e11b2a9881f7ac7bd61be50853ff30e",
-    "previewModeSigningKey": "aa295d623762878c2111a50935e4f86f19bc5861d1990a42c74daa312fb22773",
-    "previewModeEncryptionKey": "cebe3ec01831ab8d6e3a565db231819e4e45590645d3d9f05700e852bbfb78b8"
-  }
-}
+{"version":4,"routes":{"/resources/how-to-choose-a-pet-door":{},"/resources/cat-door-vs-dog-door":{},"/resources/pet-doors-texas-summers":{},"/resources/in-wall-vs-in-door-installation":{}},"dynamicRoutes":{"/resources/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/resources/[slug]","routeRegex":"^\\/resources\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"a92acea81e41278c3ce76efd711c0776","previewModeSigningKey":"db5e395724fbd22bdb6b90d2c8d9e14134e1fca517233d862c1ef68325be8c2a","previewModeEncryptionKey":"14f04be3bb05d81dfada5fd912fb9b859d9200a74cbc56bd381b445d7b456487"}}
