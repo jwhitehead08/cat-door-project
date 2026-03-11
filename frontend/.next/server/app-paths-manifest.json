@@ -1,9 +1,7 @@
 {
-  "/process/page": "app/process/page.js",
-  "/careers/page": "app/careers/page.js",
   "/resources/page": "app/resources/page.js",
-  "/resources/[slug]/page": "app/resources/[slug]/page.js",
-  "/gallery/page": "app/gallery/page.js",
   "/page": "app/page.js",
-  "/locations/college-station-bryan/page": "app/locations/college-station-bryan/page.js"
+  "/process/page": "app/process/page.js",
+  "/locations/college-station-bryan/page": "app/locations/college-station-bryan/page.js",
+  "/services/page": "app/services/page.js"
 }

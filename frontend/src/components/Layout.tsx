@@ -35,6 +35,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Home', sectionId: 'hero', href: '/' },
   { label: 'Services', sectionId: 'services', href: '/services' },
   { label: 'Process', sectionId: 'process', href: '/process' },
+  { label: 'Results', sectionId: 'results', href: '/gallery' },
   { label: 'Resources', sectionId: 'resources', href: '/resources' },
   { label: 'Contact', sectionId: 'contact' },
 ];
